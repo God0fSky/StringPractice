@@ -7,16 +7,19 @@ public class Main {
     public static void main(String[] args) {
         System.out.println(findSymbolOccurrence("Gods", 'G'));
         System.out.println("-".repeat(10));
-        System.out.println(findWordPosition("Occurrence", "crre"));
+        System.out.println(findWordPosition("Occurrence", "ccu"));
         System.out.println("-".repeat(10));
         System.out.println(stringReverse("Banana"));
         System.out.println("-".repeat(10));
-        System.out.println(isPalindrome("alala"));
+        System.out.println(isPalindrome("ererere"));
         System.out.println("-".repeat(10));
         guessTheWord();
     }
 
     public static int findSymbolOccurrence(String str, char ch) {
+        if(str == null) {
+            return 0;
+        }
         int quantityOfSymbols = 0;
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == ch) {
@@ -27,20 +30,38 @@ public class Main {
     }
 
     public static int findWordPosition(String source, String target) {
-        if (source.contains(target) == true) {
+        if(source == null || target == null) {
+            return -1;
+        }
+        if (source.contains(target)) {
             return source.indexOf(target);
-        } else return -1;
+        }
+        return -1;
     }
 
     public static String stringReverse(String str) {
-        return new StringBuilder(str).reverse().toString();
+        if(str == null) {
+            return "";
+        }
+        char[] arr = str.toCharArray();
+        for (int i = 0; i < str.length(); i++) {
+            arr[str.length() - i - 1] = str.charAt(i);
+        }
+        return String.valueOf(arr);
     }
 
     public static boolean isPalindrome(String str) {
-        StringBuilder sb = new StringBuilder(str).reverse();
-        if (sb.toString().equals(str) == true) {
+        if(str == null) {
+            return false;
+        }
+        char[] arr = str.toCharArray();
+        for (int i = 0; i < str.length(); i++) {
+            arr[str.length() - i - 1] = str.charAt(i);
+        }
+        if(str.equals(String.valueOf(arr))) {
             return true;
-        } else return false;
+        }
+        return false;
     }
 
     public static void guessTheWord() {
