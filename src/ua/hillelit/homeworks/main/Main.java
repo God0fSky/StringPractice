@@ -18,7 +18,7 @@ public class Main {
 
     public static int findSymbolOccurrence(String str, char ch) {
         if(str == null) {
-            return 0;
+            return -1;
         }
         int quantityOfSymbols = 0;
         for (int i = 0; i < str.length(); i++) {
@@ -41,7 +41,7 @@ public class Main {
 
     public static String stringReverse(String str) {
         if(str == null) {
-            return "";
+            return "Ошибка";
         }
         char[] arr = str.toCharArray();
         for (int i = 0; i < str.length(); i++) {
